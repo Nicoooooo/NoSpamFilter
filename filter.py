@@ -66,6 +66,10 @@ def calculer_variance(baseapp):
     
     return variance
 
+# p(x|Y = y) 
+def calculer_probabilite(x, esperance, variance2):
+    return (1 / (math.sqrt(2 * math.pi * esperance))) * math.exp( - math.pow(x - esperance, 2) / (2 * variance2))
+
 
 charger_dictionnaire()
 charger_base_app()
