@@ -5,7 +5,8 @@ def charger_dictionnaire():
     file = open("dictionnaire1000en.txt", "r")
     for line in file:
         for word in line.split():
-            dico.append(word)
+            if len(word) >= 3:
+                dico.append(word)
 
 
 def lire_message(chemin):
