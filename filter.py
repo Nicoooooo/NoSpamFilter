@@ -1,5 +1,10 @@
+import math
+
 dico = []
-baseapp = []
+baseapp_spam = []
+baseapp_ham = []
+variances_ham = {}
+variances_spam = {}
 
 def charger_dictionnaire():
     file = open("dictionnaire1000en.txt", "r")
@@ -22,15 +27,54 @@ def lire_message(chemin):
 
 def charger_base_app():
     for i in range (2500):
-        baseapp.append(lire_message('baseapp/ham/'+str(i)+'.txt'))
+        baseapp_ham.append(lire_message('baseapp/ham/'+str(i)+'.txt'))
     # Bug pour le spam 115, qui n'est pas en utf-8
     #for i in range (500):
-    #   baseapp.append(lire_message('baseapp/spam/'+str(i)+'.txt'))
+    #   baseapp_spam.append(lire_message('baseapp/spam/'+str(i)+'.txt'))
+
+
+def calculer_eperance(baseapp):
+    esperance = {}
+
+    for word in dico:
+        esperance[word] = 0
+
+    for msg in baseapp:
+        for word in dico:
+            esperance[word] += msg[word]
+
+    if len(baseapp) > 0:
+        for word in dico:
+            esperance[word] /= float(len(baseapp))
+    
+    return esperance
+
+def calculer_variance(baseapp):
+    esperances = calculer_eperance(baseapp)
+    variance = {}
+
+    for word in dico:
+        variance[word] = 0
+
+    for msg in baseapp:
+        for word in dico:
+            variance[word] += pow(msg[word] - esperances[word], 2)
+
+    if len(baseapp) > 0:
+        for word in dico:
+            variance[word] *= (1 / float(len(baseapp) - 1))
+    
+    return variance
+
 
 charger_dictionnaire()
 charger_base_app()
 msg = lire_message("baseapp/ham/0.txt")
-print(dico)
-print(msg)
-print(len(baseapp))
-print(baseapp[0])
+variances_ham = calculer_variance(baseapp_ham)
+variances_spam = calculer_variance(baseapp_spam)
+#print(dico)
+#print(msg)
+#print(len(baseapp))
+# print(baseapp_ham[0])
+
+print(variances_ham)
