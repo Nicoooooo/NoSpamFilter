@@ -1,7 +1,7 @@
 import math
 
-range_spam = 499 #500 Bug pour le spam 115, qui n'est pas en utf-8
-range_ham = 2499
+range_spam = 500 #500 Bug pour le spam 115, qui n'est pas en utf-8
+range_ham = 2500
 
 nbtests_spam = 20
 nbtests_ham = 20
@@ -38,9 +38,9 @@ def lire_message(chemin):
 def charger_base_app():
     for i in range (range_ham):
         baseapp_ham.append(lire_message('baseapp/ham/'+str(i)+'.txt'))
-    # Bug pour le spam 115, qui n'est pas en utf-8
     for i in range (range_spam):
-      baseapp_spam.append(lire_message('baseapp/spam/'+str(i)+'.txt'))
+        if i != 115 and i != 262 and i != 319 and i != 322 and i != 323 and i != 499: # spams non utf-8
+            baseapp_spam.append(lire_message('baseapp/spam/'+str(i)+'.txt'))
 
 #methode 0
 def calculer_bj(baseapp):
@@ -51,21 +51,25 @@ def calculer_bj(baseapp):
 
     for msg in baseapp:
         for word in dico:
-            bjs[word] += msg[word]
+            if msg[word] > 0:
+                bjs[word] += 1
 
     if len(baseapp) > 0:
         for word in dico:
-            bjs[word] = (bjs[word] + epsilon) / float(2 * epsilon + len(baseapp))
-    
+            bjs[word] = (bjs[word] + epsilon) / (2 * epsilon + len(baseapp))
+
     return bjs
 
 def calculer_probabilite(message, bjs, pyy):
     #proba = (1 / P(X = x)) * P(Y = y) * mult ( bjs)^xi * (1 - bjs)^(1-xi)
-    proba = 1 * pyy
+    proba = math.log(pyy)
     for word in dico:
-        proba *= math.pow(bjs[word], message[word]) * math.pow(1 - bjs[word], 1 - message[word])
+        if message[word] == 0:
+            proba += math.log(1 - bjs[word])
+        else:
+            proba += math.log(bjs[word])
 
-    return abs(proba)
+    return proba
 
 def predire(message, bjham, bjspam, pyham, pyspam):
     proba_spam = calculer_probabilite(message, bjspam, pyspam)
