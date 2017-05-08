@@ -1,10 +1,20 @@
 import math
 
+range_spam = 499 #500 Bug pour le spam 115, qui n'est pas en utf-8
+range_ham = 2499
+
+nbtests_spam = 20
+nbtests_ham = 20
+
+epsilon = 1
 dico = []
 baseapp_spam = []
 baseapp_ham = []
 variances_ham = {}
 variances_spam = {}
+
+count_testes = [0]
+count_erreurs = [0]
 
 def charger_dictionnaire():
     file = open("dictionnaire1000en.txt", "r")
@@ -26,31 +36,69 @@ def lire_message(chemin):
     return msg
 
 def charger_base_app():
-    for i in range (2500):
+    for i in range (range_ham):
         baseapp_ham.append(lire_message('baseapp/ham/'+str(i)+'.txt'))
     # Bug pour le spam 115, qui n'est pas en utf-8
-    #for i in range (500):
-    #   baseapp_spam.append(lire_message('baseapp/spam/'+str(i)+'.txt'))
+    for i in range (range_spam):
+      baseapp_spam.append(lire_message('baseapp/spam/'+str(i)+'.txt'))
 
-
-def calculer_eperance(baseapp):
-    esperance = {}
+#methode 0
+def calculer_bj(baseapp):
+    bjs = {}
 
     for word in dico:
-        esperance[word] = 0
+        bjs[word] = 0
 
     for msg in baseapp:
         for word in dico:
-            esperance[word] += msg[word]
+            bjs[word] += msg[word]
 
     if len(baseapp) > 0:
         for word in dico:
-            esperance[word] /= float(len(baseapp))
+            bjs[word] = (bjs[word] + epsilon) / float(2 * epsilon + len(baseapp))
     
-    return esperance
+    return bjs
 
+def calculer_probabilite(message, bjs, pyy):
+    #proba = (1 / P(X = x)) * P(Y = y) * mult ( bjs)^xi * (1 - bjs)^(1-xi)
+    proba = 1 * pyy
+    for word in dico:
+        proba *= math.pow(bjs[word], message[word]) * math.pow(1 - bjs[word], 1 - message[word])
+
+    return proba
+
+def predire(message, bjham, bjspam, pyham, pyspam):
+    proba_spam = calculer_probabilite(message, bjspam, pyspam)
+    proba_ham = calculer_probabilite(message, bjham, pyham)
+    type = 'ham'
+
+    if proba_spam > proba_ham:
+        type = 'spam'
+
+    return proba_spam, proba_ham, type
+
+def tester_message(type, no, bjham, bjspam, pyham, pyspam):
+    message = lire_message('basetest/' +  type + '/' + str(no) + '.txt')
+    pspam, pham, prediction = predire(message, bjham, bjspam, pyham, pyspam)
+    erreur = ''
+
+    count_testes[0] += 1
+    if type != prediction:
+        erreur = ' *** erreur ***'
+        count_erreurs[0] += 1
+
+    # print(type.upper() + ' numero ' + str(no) + ' identifie comme un ' + prediction.upper() + erreur)
+
+    print(type.upper() + ' numero ' + str(no) + ' : P(Y=SPAM | X=x) = ' + str(pspam) +', P(Y=HAM | X=x) = ' + str(pham))
+    print('\t\t\t\t\t => identifie comme un ' + prediction.upper() + erreur + '\n')
+
+def tester_messages(norange, type, bjham, bjspam, pyham, pyspam):
+    for no in range(norange):
+        tester_message(type, no, bjham, bjspam, pyham, pyspam)
+
+# methode 1
 def calculer_variance(baseapp):
-    esperances = calculer_eperance(baseapp)
+    esperances = calculer_bj(baseapp)
     variance = {}
 
     for word in dico:
@@ -66,19 +114,26 @@ def calculer_variance(baseapp):
     
     return variance
 
-# p(x|Y = y) 
-def calculer_probabilite(x, esperance, variance2):
-    return (1 / (math.sqrt(2 * math.pi * esperance))) * math.exp( - math.pow(x - esperance, 2) / (2 * variance2))
 
+print('Apprentissage realise sur ' + str(range_spam) + ' SPAMs et ' + str(range_ham) + ' HAMs')
 
 charger_dictionnaire()
 charger_base_app()
-msg = lire_message("baseapp/ham/0.txt")
-variances_ham = calculer_variance(baseapp_ham)
-variances_spam = calculer_variance(baseapp_spam)
-#print(dico)
-#print(msg)
-#print(len(baseapp))
-# print(baseapp_ham[0])
 
-print(variances_ham)
+bjham = calculer_bj(baseapp_ham)
+bjspam = calculer_bj(baseapp_spam)
+variancesspam = calculer_variance(baseapp_spam)
+variancesham = calculer_variance(baseapp_ham)
+pyham = len(baseapp_ham) / float(len(baseapp_ham) + len(baseapp_spam))
+pyspam = len(baseapp_spam) / float(len(baseapp_ham) + len(baseapp_spam))
+
+tester_messages(nbtests_spam, 'spam', bjham, bjspam, pyham, pyspam)
+count_erreurs_spam = count_erreurs[0]
+count_erreurs[0] = 0
+tester_messages(nbtests_ham, 'ham', bjham, bjspam, pyham, pyspam)
+count_erreurs_ham = count_erreurs[0]
+
+print('Resultats : ')
+print('Erreur de test sur les ' + str(nbtests_spam) + ' SPAM       :  ' + str(int( 100 * count_erreurs_spam / float(nbtests_spam) )) + ' %')
+print('Erreur de test sur les ' + str(nbtests_ham)  + ' HAM        :  ' + str(int( 100 * count_erreurs_ham / float(nbtests_spam) )) + ' %')
+print('Erreur de test globale sur ' + str(nbtests_ham)  + ' mails  :  ' + str(int( 100 * (count_erreurs_ham + count_erreurs_spam) / float(nbtests_spam + nbtests_ham) )) + ' %')
