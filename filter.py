@@ -4,8 +4,8 @@ try:
     range_spam = int(input("Nombre de spam de la base d'apprentissage ? (max 500)"))
     range_ham = int(input("Nombre de ham de la base d'apprentissage ? (max 2500)"))
 
-    nbtests_spam = int(input("Nombre de spam à tester ? (max 500)"))
-    nbtests_ham = int(input("Nombre de ham à tester ? (max 500)"))
+    nbtests_spam = int(input("Nombre de spam a tester ? (max 500)"))
+    nbtests_ham = int(input("Nombre de ham a tester ? (max 500)"))
 except ValueError:
     print("Not a number")
 
@@ -65,7 +65,7 @@ def calculer_bj(baseapp):
 
 def calculer_probabilite(message, bjs, pyy):
     #proba = (1 / P(X = x)) * P(Y = y) * mult ( bjs)^xi * (1 - bjs)^(1-xi)
-    #optimisé en appliquant ln() sur toute la formule et en considérant que xi est soit 0 soit 1
+    #optimise en appliquant ln() sur toute la formule et en considerant que xi est soit 0 soit 1
     proba = math.log(pyy)
     for word in dico:
         if message[word] == 0:
@@ -95,11 +95,8 @@ def tester_message(type, no, bjham, bjspam, pyham, pyspam):
         erreur = ' *** erreur ***'
         count_erreurs[0] += 1
 
-    # print(type.upper() + ' numero ' + str(no) + ' identifie comme un ' + prediction.upper() + erreur)
-
     print(type.upper() + ' numero ' + str(no) + ' : P(Y=SPAM | X=x) = ' + str(pspam) +', P(Y=HAM | X=x) = ' + str(pham) + '  => identifie comme un ' + prediction.upper() + erreur)
-    #print('\t\t\t\t\t => identifie comme un ' + prediction.upper() + erreur + '\n')
-
+    
 def tester_messages(norange, type, bjham, bjspam, pyham, pyspam):
     for no in range(norange):
         tester_message(type, no, bjham, bjspam, pyham, pyspam)
