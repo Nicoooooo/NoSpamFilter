@@ -42,8 +42,7 @@ def charger_base_app():
     for i in range (range_ham):
         baseapp_ham.append(lire_message('baseapp/ham/'+str(i)+'.txt'))
     for i in range (range_spam):
-        if i != 115 and i != 262 and i != 319 and i != 322 and i != 323 and i != 499: # spams non utf-8
-            baseapp_spam.append(lire_message('baseapp/spam/'+str(i)+'.txt'))
+        baseapp_spam.append(lire_message('baseapp/spam/'+str(i)+'.txt'))
 
 #methode 0
 def calculer_bj(baseapp):
@@ -59,7 +58,7 @@ def calculer_bj(baseapp):
 
     if len(baseapp) > 0:
         for word in dico:
-            bjs[word] = (bjs[word] + epsilon) / (2 * epsilon + len(baseapp))
+            bjs[word] = (bjs[word] + epsilon) / float(2 * epsilon + len(baseapp))
 
     return bjs
 
