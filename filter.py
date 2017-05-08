@@ -1,10 +1,13 @@
 import math
 
-range_spam = 500 #500 Bug pour le spam 115, qui n'est pas en utf-8
-range_ham = 2500
+try:
+    range_spam = int(input("Nombre de spam de la base d'apprentissage ? (max 500)"))
+    range_ham = int(input("Nombre de ham de la base d'apprentissage ? (max 2500)"))
 
-nbtests_spam = 20
-nbtests_ham = 20
+    nbtests_spam = int(input("Nombre de spam à tester ? (max 500)"))
+    nbtests_ham = int(input("Nombre de ham à tester ? (max 500)"))
+except ValueError:
+    print("Not a number")
 
 epsilon = 1
 dico = []
@@ -62,6 +65,7 @@ def calculer_bj(baseapp):
 
 def calculer_probabilite(message, bjs, pyy):
     #proba = (1 / P(X = x)) * P(Y = y) * mult ( bjs)^xi * (1 - bjs)^(1-xi)
+    #optimisé en appliquant ln() sur toute la formule et en considérant que xi est soit 0 soit 1
     proba = math.log(pyy)
     for word in dico:
         if message[word] == 0:
@@ -93,8 +97,8 @@ def tester_message(type, no, bjham, bjspam, pyham, pyspam):
 
     # print(type.upper() + ' numero ' + str(no) + ' identifie comme un ' + prediction.upper() + erreur)
 
-    print(type.upper() + ' numero ' + str(no) + ' : P(Y=SPAM | X=x) = ' + str(pspam) +', P(Y=HAM | X=x) = ' + str(pham))
-    print('\t\t\t\t\t => identifie comme un ' + prediction.upper() + erreur + '\n')
+    print(type.upper() + ' numero ' + str(no) + ' : P(Y=SPAM | X=x) = ' + str(pspam) +', P(Y=HAM | X=x) = ' + str(pham) + '  => identifie comme un ' + prediction.upper() + erreur)
+    #print('\t\t\t\t\t => identifie comme un ' + prediction.upper() + erreur + '\n')
 
 def tester_messages(norange, type, bjham, bjspam, pyham, pyspam):
     for no in range(norange):
@@ -119,7 +123,7 @@ def calculer_variance(baseapp):
     return variance
 
 
-print('Apprentissage realise sur ' + str(range_spam) + ' SPAMs et ' + str(range_ham) + ' HAMs')
+print('\nApprentissage realise sur ' + str(range_spam) + ' SPAMs et ' + str(range_ham) + ' HAMs\n')
 
 charger_dictionnaire()
 charger_base_app()
@@ -137,7 +141,7 @@ count_erreurs[0] = 0
 tester_messages(nbtests_ham, 'ham', bjham, bjspam, pyham, pyspam)
 count_erreurs_ham = count_erreurs[0]
 
-print('Resultats : ')
+print('\nResultats : ')
 print('Erreur de test sur les ' + str(nbtests_spam) + ' SPAM       :  ' + str(int( 100 * count_erreurs_spam / float(nbtests_spam) )) + ' %')
 print('Erreur de test sur les ' + str(nbtests_ham)  + ' HAM        :  ' + str(int( 100 * count_erreurs_ham / float(nbtests_spam) )) + ' %')
-print('Erreur de test globale sur ' + str(nbtests_ham)  + ' mails  :  ' + str(int( 100 * (count_erreurs_ham + count_erreurs_spam) / float(nbtests_spam + nbtests_ham) )) + ' %')
+print('Erreur de test globale sur ' + str(nbtests_ham + nbtests_spam) + ' mails  :  ' + str(int( 100 * (count_erreurs_ham + count_erreurs_spam) / float(nbtests_spam + nbtests_ham) )) + ' %')
