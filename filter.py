@@ -1,11 +1,13 @@
 import math
 
 try:
-    range_spam = int(input("Nombre de spam de la base d'apprentissage ? (max 500)"))
-    range_ham = int(input("Nombre de ham de la base d'apprentissage ? (max 2500)"))
+    range_spam = int(raw_input("Nombre de spam de la base d'apprentissage ? (max 500)"))
+    range_ham = int(raw_input("Nombre de ham de la base d'apprentissage ? (max 2500)"))
 
-    nbtests_spam = int(input("Nombre de spam a tester ? (max 500)"))
-    nbtests_ham = int(input("Nombre de ham a tester ? (max 500)"))
+    nbtests_spam = int(raw_input("Nombre de spam a tester ? (max 500)"))
+    nbtests_ham = int(raw_input("Nombre de ham a tester ? (max 500)"))
+
+    basetest_path = str(raw_input("Entrez le chemin de la base de test (par defaut basetest): "))
 except ValueError:
     print("Not a number")
 
@@ -85,7 +87,7 @@ def predire(message, bjham, bjspam, pyham, pyspam):
     return proba_spam, proba_ham, type
 
 def tester_message(type, no, bjham, bjspam, pyham, pyspam):
-    message = lire_message('basetest/' +  type + '/' + str(no) + '.txt')
+    message = lire_message(basetest_path+'/' +  type + '/' + str(no) + '.txt')
     pspam, pham, prediction = predire(message, bjham, bjspam, pyham, pyspam)
     erreur = ''
 
@@ -95,7 +97,7 @@ def tester_message(type, no, bjham, bjspam, pyham, pyspam):
         count_erreurs[0] += 1
 
     print(type.upper() + ' numero ' + str(no) + ' : P(Y=SPAM | X=x) = ' + str(pspam) +', P(Y=HAM | X=x) = ' + str(pham) + '  => identifie comme un ' + prediction.upper() + erreur)
-    
+
 def tester_messages(norange, type, bjham, bjspam, pyham, pyspam):
     for no in range(norange):
         tester_message(type, no, bjham, bjspam, pyham, pyspam)
@@ -115,7 +117,7 @@ def calculer_variance(baseapp):
     if len(baseapp) > 0:
         for word in dico:
             variance[word] *= (1 / float(len(baseapp) - 1))
-    
+
     return variance
 
 
