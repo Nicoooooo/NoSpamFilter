@@ -1,125 +1,125 @@
 Apprentissage realise sur 499 SPAMs et 2499 HAMs
-SPAM numero 0 : P(Y=SPAM | X=x) = -6.49519381906e-118, P(Y=HAM | X=x) = -1.41612448757e-120
-					 => identifie comme un HAM *** erreur ***
-
-SPAM numero 1 : P(Y=SPAM | X=x) = 1.05767943953e-101, P(Y=HAM | X=x) = -1.29350141906e-120
+SPAM numero 0 : P(Y=SPAM | X=x) = 1.94725910695e-114, P(Y=HAM | X=x) = 4.24554121372e-117
 					 => identifie comme un SPAM
 
-SPAM numero 2 : P(Y=SPAM | X=x) = 2.49507190548e-123, P(Y=HAM | X=x) = 1.38067466635e-177
+SPAM numero 1 : P(Y=SPAM | X=x) = 3.1709229597e-98, P(Y=HAM | X=x) = 3.87791725435e-117
 					 => identifie comme un SPAM
 
-SPAM numero 3 : P(Y=SPAM | X=x) = -2.31203590875e-123, P(Y=HAM | X=x) = -5.04654432462e-178
-					 => identifie comme un HAM *** erreur ***
-
-SPAM numero 4 : P(Y=SPAM | X=x) = -1.24707025998e-65, P(Y=HAM | X=x) = 2.98179008202e-79
-					 => identifie comme un HAM *** erreur ***
-
-SPAM numero 5 : P(Y=SPAM | X=x) = -3.25372416034e-51, P(Y=HAM | X=x) = -1.05308584799e-49
+SPAM numero 2 : P(Y=SPAM | X=x) = 7.48022557263e-120, P(Y=HAM | X=x) = 4.13926264973e-174
 					 => identifie comme un SPAM
 
-SPAM numero 6 : P(Y=SPAM | X=x) = -2.80395175146e-63, P(Y=HAM | X=x) = -2.40070864421e-63
-					 => identifie comme un HAM *** erreur ***
-
-SPAM numero 7 : P(Y=SPAM | X=x) = -2.30930230473e-199, P(Y=HAM | X=x) = 1.59912595293e-253
-					 => identifie comme un HAM *** erreur ***
-
-SPAM numero 8 : P(Y=SPAM | X=x) = -8.2831761871e-114, P(Y=HAM | X=x) = 9.23666980973e-161
-					 => identifie comme un HAM *** erreur ***
-
-SPAM numero 9 : P(Y=SPAM | X=x) = -8.35700628411e-51, P(Y=HAM | X=x) = 3.79406752286e-46
-					 => identifie comme un HAM *** erreur ***
-
-SPAM numero 10 : P(Y=SPAM | X=x) = 6.49765321891e-55, P(Y=HAM | X=x) = -8.3510481777e-59
+SPAM numero 3 : P(Y=SPAM | X=x) = 6.93148365442e-120, P(Y=HAM | X=x) = 1.51295398852e-174
 					 => identifie comme un SPAM
 
-SPAM numero 11 : P(Y=SPAM | X=x) = 2.59563599482e-107, P(Y=HAM | X=x) = 3.56404232419e-138
+SPAM numero 4 : P(Y=SPAM | X=x) = 3.73871663943e-62, P(Y=HAM | X=x) = 8.93940666588e-76
 					 => identifie comme un SPAM
 
-SPAM numero 12 : P(Y=SPAM | X=x) = 7.30866710349e-121, P(Y=HAM | X=x) = 1.33807826779e-141
-					 => identifie comme un SPAM
-
-SPAM numero 13 : P(Y=SPAM | X=x) = 7.21159127903e-57, P(Y=HAM | X=x) = 6.76164626024e-60
-					 => identifie comme un SPAM
-
-SPAM numero 14 : P(Y=SPAM | X=x) = 2.8163317469e-39, P(Y=HAM | X=x) = 6.03595395457e-50
-					 => identifie comme un SPAM
-
-SPAM numero 15 : P(Y=SPAM | X=x) = -2.84097350323e-154, P(Y=HAM | X=x) = 3.67952407951e-159
+SPAM numero 5 : P(Y=SPAM | X=x) = 9.75466503271e-48, P(Y=HAM | X=x) = 3.15715137226e-46
 					 => identifie comme un HAM *** erreur ***
 
-SPAM numero 16 : P(Y=SPAM | X=x) = 8.87757098244e-57, P(Y=HAM | X=x) = 5.69327061823e-63
+SPAM numero 6 : P(Y=SPAM | X=x) = 8.40624735087e-60, P(Y=HAM | X=x) = 7.19732451533e-60
 					 => identifie comme un SPAM
 
-SPAM numero 17 : P(Y=SPAM | X=x) = 7.24329506392e-45, P(Y=HAM | X=x) = 5.01508076926e-41
-					 => identifie comme un HAM *** erreur ***
-
-SPAM numero 18 : P(Y=SPAM | X=x) = 3.62804793115e-64, P(Y=HAM | X=x) = 1.04190498563e-56
-					 => identifie comme un HAM *** erreur ***
-
-SPAM numero 19 : P(Y=SPAM | X=x) = 1.59782521528e-88, P(Y=HAM | X=x) = -1.04072743823e-102
+SPAM numero 7 : P(Y=SPAM | X=x) = 6.92328830958e-196, P(Y=HAM | X=x) = 4.79417960688e-250
 					 => identifie comme un SPAM
 
-HAM numero 0 : P(Y=SPAM | X=x) = 3.03759684529e-173, P(Y=HAM | X=x) = 1.91266170371e-176
+SPAM numero 8 : P(Y=SPAM | X=x) = 2.48329622089e-110, P(Y=HAM | X=x) = 2.76915360896e-157
+					 => identifie comme un SPAM
+
+SPAM numero 9 : P(Y=SPAM | X=x) = 2.50543048398e-47, P(Y=HAM | X=x) = 1.13746144335e-42
+					 => identifie comme un HAM *** erreur ***
+
+SPAM numero 10 : P(Y=SPAM | X=x) = 1.94799643503e-51, P(Y=HAM | X=x) = 2.50364424367e-55
+					 => identifie comme un SPAM
+
+SPAM numero 11 : P(Y=SPAM | X=x) = 7.78171671248e-104, P(Y=HAM | X=x) = 1.06849988879e-134
+					 => identifie comme un SPAM
+
+SPAM numero 12 : P(Y=SPAM | X=x) = 2.19113839763e-117, P(Y=HAM | X=x) = 4.01155864685e-138
+					 => identifie comme un SPAM
+
+SPAM numero 13 : P(Y=SPAM | X=x) = 2.16203506545e-53, P(Y=HAM | X=x) = 2.02714154882e-56
+					 => identifie comme un SPAM
+
+SPAM numero 14 : P(Y=SPAM | X=x) = 8.44336257721e-36, P(Y=HAM | X=x) = 1.80957899558e-46
+					 => identifie comme un SPAM
+
+SPAM numero 15 : P(Y=SPAM | X=x) = 8.51723856267e-151, P(Y=HAM | X=x) = 1.10312131904e-155
+					 => identifie comme un SPAM
+
+SPAM numero 16 : P(Y=SPAM | X=x) = 2.66149578054e-53, P(Y=HAM | X=x) = 1.70684253135e-59
+					 => identifie comme un SPAM
+
+SPAM numero 17 : P(Y=SPAM | X=x) = 2.17153986016e-41, P(Y=HAM | X=x) = 1.50352121463e-37
+					 => identifie comme un HAM *** erreur ***
+
+SPAM numero 18 : P(Y=SPAM | X=x) = 1.08768876976e-60, P(Y=HAM | X=x) = 3.12363114692e-53
+					 => identifie comme un HAM *** erreur ***
+
+SPAM numero 19 : P(Y=SPAM | X=x) = 4.7902799954e-85, P(Y=HAM | X=x) = 3.1201008598e-99
+					 => identifie comme un SPAM
+
+HAM numero 0 : P(Y=SPAM | X=x) = 9.10671534219e-170, P(Y=HAM | X=x) = 5.73415978773e-173
 					 => identifie comme un SPAM *** erreur ***
 
-HAM numero 1 : P(Y=SPAM | X=x) = -3.53167754053e-64, P(Y=HAM | X=x) = -3.26866838941e-51
+HAM numero 1 : P(Y=SPAM | X=x) = 1.05879692665e-60, P(Y=HAM | X=x) = 9.79946783146e-48
+					 => identifie comme un HAM
+
+HAM numero 2 : P(Y=SPAM | X=x) = 6.7844579725e-64, P(Y=HAM | X=x) = 2.80206852669e-62
+					 => identifie comme un HAM
+
+HAM numero 3 : P(Y=SPAM | X=x) = 1.04607188896e-171, P(Y=HAM | X=x) = 2.65417018808e-175
 					 => identifie comme un SPAM *** erreur ***
 
-HAM numero 2 : P(Y=SPAM | X=x) = 2.26299465394e-67, P(Y=HAM | X=x) = 9.34645939522e-66
+HAM numero 4 : P(Y=SPAM | X=x) = 1.90951968858e-56, P(Y=HAM | X=x) = 4.37639767871e-46
 					 => identifie comme un HAM
 
-HAM numero 3 : P(Y=SPAM | X=x) = -3.48923245151e-175, P(Y=HAM | X=x) = -8.85313605097e-179
+HAM numero 5 : P(Y=SPAM | X=x) = 8.25606738266e-180, P(Y=HAM | X=x) = 3.73608706054e-174
 					 => identifie comme un HAM
 
-HAM numero 4 : P(Y=SPAM | X=x) = -6.36931183648e-60, P(Y=HAM | X=x) = 1.45977240784e-49
+HAM numero 6 : P(Y=SPAM | X=x) = 1.86336190721e-51, P(Y=HAM | X=x) = 2.31426540919e-37
 					 => identifie comme un HAM
 
-HAM numero 5 : P(Y=SPAM | X=x) = 2.75385836647e-183, P(Y=HAM | X=x) = 1.24619314895e-177
+HAM numero 7 : P(Y=SPAM | X=x) = 5.12753730291e-76, P(Y=HAM | X=x) = 1.26530960272e-74
 					 => identifie comme un HAM
 
-HAM numero 6 : P(Y=SPAM | X=x) = -6.21534992398e-55, P(Y=HAM | X=x) = -7.7193642735e-41
-					 => identifie comme un SPAM *** erreur ***
-
-HAM numero 7 : P(Y=SPAM | X=x) = 1.71031931385e-79, P(Y=HAM | X=x) = 4.22051235062e-78
+HAM numero 8 : P(Y=SPAM | X=x) = 7.24981357851e-74, P(Y=HAM | X=x) = 4.1791097318e-57
 					 => identifie comme un HAM
 
-HAM numero 8 : P(Y=SPAM | X=x) = -2.41821667062e-77, P(Y=HAM | X=x) = -1.39396588786e-60
-					 => identifie comme un SPAM *** erreur ***
-
-HAM numero 9 : P(Y=SPAM | X=x) = 1.46958859542e-47, P(Y=HAM | X=x) = -1.75613982077e-44
-					 => identifie comme un SPAM *** erreur ***
-
-HAM numero 10 : P(Y=SPAM | X=x) = 3.99759057344e-41, P(Y=HAM | X=x) = 3.19498665797e-29
+HAM numero 9 : P(Y=SPAM | X=x) = 4.40582660906e-44, P(Y=HAM | X=x) = 5.26490718266e-41
 					 => identifie comme un HAM
 
-HAM numero 11 : P(Y=SPAM | X=x) = -8.14468376177e-66, P(Y=HAM | X=x) = 8.83809506671e-63
+HAM numero 10 : P(Y=SPAM | X=x) = 1.19847765392e-37, P(Y=HAM | X=x) = 9.57857000059e-26
 					 => identifie comme un HAM
 
-HAM numero 12 : P(Y=SPAM | X=x) = 5.00191224659e-49, P(Y=HAM | X=x) = 2.39202348592e-39
+HAM numero 11 : P(Y=SPAM | X=x) = 2.44177619178e-62, P(Y=HAM | X=x) = 2.649660901e-59
 					 => identifie comme un HAM
 
-HAM numero 13 : P(Y=SPAM | X=x) = -6.44308292254e-119, P(Y=HAM | X=x) = 8.71665680996e-108
+HAM numero 12 : P(Y=SPAM | X=x) = 1.49957329153e-45, P(Y=HAM | X=x) = 7.17128641078e-36
 					 => identifie comme un HAM
 
-HAM numero 14 : P(Y=SPAM | X=x) = 5.69703382021e-84, P(Y=HAM | X=x) = -1.49634482143e-79
-					 => identifie comme un SPAM *** erreur ***
-
-HAM numero 15 : P(Y=SPAM | X=x) = -6.44308292254e-119, P(Y=HAM | X=x) = 8.71665680996e-108
+HAM numero 13 : P(Y=SPAM | X=x) = 1.93163626018e-115, P(Y=HAM | X=x) = 2.61325371163e-104
 					 => identifie comme un HAM
 
-HAM numero 16 : P(Y=SPAM | X=x) = 8.21023997621e-82, P(Y=HAM | X=x) = -6.06145616994e-74
-					 => identifie comme un SPAM *** erreur ***
-
-HAM numero 17 : P(Y=SPAM | X=x) = 1.63591612284e-46, P(Y=HAM | X=x) = -5.32840433387e-36
-					 => identifie comme un SPAM *** erreur ***
-
-HAM numero 18 : P(Y=SPAM | X=x) = 1.30776539107e-44, P(Y=HAM | X=x) = 1.53819711065e-35
+HAM numero 14 : P(Y=SPAM | X=x) = 1.7079707393e-80, P(Y=HAM | X=x) = 4.48604177465e-76
 					 => identifie comme un HAM
 
-HAM numero 19 : P(Y=SPAM | X=x) = -1.11316607372e-66, P(Y=HAM | X=x) = 1.85247614152e-50
+HAM numero 15 : P(Y=SPAM | X=x) = 1.93163626018e-115, P(Y=HAM | X=x) = 2.61325371163e-104
+					 => identifie comme un HAM
+
+HAM numero 16 : P(Y=SPAM | X=x) = 2.46142994487e-78, P(Y=HAM | X=x) = 1.81722455975e-70
+					 => identifie comme un HAM
+
+HAM numero 17 : P(Y=SPAM | X=x) = 4.90447653627e-43, P(Y=HAM | X=x) = 1.59745561929e-32
+					 => identifie comme un HAM
+
+HAM numero 18 : P(Y=SPAM | X=x) = 3.92068064243e-41, P(Y=HAM | X=x) = 4.61151493773e-32
+					 => identifie comme un HAM
+
+HAM numero 19 : P(Y=SPAM | X=x) = 3.33727188901e-63, P(Y=HAM | X=x) = 5.55372347226e-47
 					 => identifie comme un HAM
 
 Resultats : 
-Erreur de test sur les 20 SPAM       :  50 %
-Erreur de test sur les 20 HAM        :  40 %
-Erreur de test globale sur 20 mails  :  45 %
+Erreur de test sur les 20 SPAM       :  20 %
+Erreur de test sur les 20 HAM        :  10 %
+Erreur de test globale sur 20 mails  :  15 %

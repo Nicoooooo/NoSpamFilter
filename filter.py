@@ -65,7 +65,7 @@ def calculer_probabilite(message, bjs, pyy):
     for word in dico:
         proba *= math.pow(bjs[word], message[word]) * math.pow(1 - bjs[word], 1 - message[word])
 
-    return proba
+    return abs(proba)
 
 def predire(message, bjham, bjspam, pyham, pyspam):
     proba_spam = calculer_probabilite(message, bjspam, pyspam)
